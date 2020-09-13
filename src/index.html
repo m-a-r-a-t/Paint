@@ -5,10 +5,95 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Paint online</title>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 </head>
 <body>
-<div id="app" class="container"></div>
+<div id="app" class="container">
+    <div class="logo">
+        <div>Paint Online</div>
+        <span class="material-icons">
+brush
+</span>
+    </div>
+    <div class="top__panel">
+
+        <span class="material-icons" title="Вставить">
+                insert_drive_file
+        </span>
+        <span class="material-icons" title="Вырезать">
+            content_cut
+        </span>
+        <span class="material-icons" title="Копировать">
+            content_copy
+        </span>
+        <button id="color__first"
+                data-jscolor="{alphaChannel:false , value:'rgba(0,0,0,1)'}"></button>
+
+        <button id="color__second" data-jscolor="{alphaChannel:false , value:'rgba(255,255,255,1)'}"></button>
+        <span class="material-icons">
+            zoom_in
+        </span>
+        <span class="material-icons">
+        zoom_out
+        </span>
+        <div>
+
+            <div id="thickness">Thickness : 1</div>
+            <input id="range" type="range" min="1" max="100" step="1" value="1">
+        </div>
+        <span class="material-icons  " title="Поворот на 90° влево">
+                   rotate_left
+                </span>
+        <span class="material-icons  " title="Поворот на 90° влево">
+                   rotate_right
+                </span>
+
+    </div>
+</div>
+<div class="buttons__page">
+    <div class="buttons">
+        <div class="clipboard">
+
+
+            <div>
+            <span class="material-icons  " title="Выделить">
+                     highlight_alt
+                </span>
+            </div>
+
+            <div id="edit">
+            <span class="material-icons" title="Карандаш">
+                    edit
+                </span>
+            </div>
+            <div id="eraser">
+                <img class="editable" src="https://img.icons8.com/material/96/000000/eraser--v1.png"/>
+            </div>
+            <div>
+            <span class="material-icons" title="Выделить">
+                    title
+                </span>
+            </div>
+            <div>
+                <span class="material-icons" title="Выделить">
+                   format_paint
+                </span>
+            </div>
+            <div>
+                <span class="material-icons">
+                    palette
+                </span>
+            </div>
+        </div>
+    </div>
+    <canvas id="page" width="1920" height="1080px"></canvas>
+</div>
+</div>
+
+</div>
+
+</div>
 </body>
 </html>
