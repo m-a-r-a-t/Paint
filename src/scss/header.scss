@@ -1,0 +1,103 @@
+.logo {
+  height: $logo-height;
+  font-size: 35px;
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  border-bottom: $borders;
+  position: fixed;
+  background: white;
+
+  span {
+    font-size: 50px;
+  }
+
+  div {
+    height: 45px;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+}
+
+.buttons {
+  background: white;
+  position: fixed;
+  top: $logo-height+$panel-height;
+  cursor: url("cursor.png"), pointer;
+
+  & {
+    font-size: 24px;
+  }
+
+
+  width: 25px;
+
+  height: 100vh;
+  border-right: $borders;
+
+  .clipboard {
+    height: $buttons-height;
+    display: grid;
+    grid-template-rows: $button-size $button-size $button-size;
+    grid-template-areas: 's' 's' 's' 's';
+
+
+    div {
+      height: $button-size;
+      width: $button-size;
+      border-right: $borders;
+      border-bottom: $borders;
+
+      img {
+        &:hover {
+
+          background: #e9e3e3;
+        }
+
+        width: 24px;
+        height: 24px;
+      }
+
+
+    }
+
+
+  }
+
+
+  span:hover {
+    cursor: url("cursor.png"), pointer;
+    background: #e9e3e3;
+  }
+
+  svg:hover {
+    cursor: url("cursor.png"), pointer;
+    background: #e9e3e3;
+  }
+
+}
+
+
+.rotate {
+  border: $borders;
+  border-left: 0px;
+  position: absolute;
+  top: 214px;
+  left: 25px;
+  width: 25px;
+  height: 26px;
+
+  span:hover {
+    cursor: url("cursor.png"), pointer;
+    background: #e9e3e3;
+  }
+
+  span:active {
+    color: #5a5a86;
+  }
+}
+
+.activated {
+  background: #66e966;
+}

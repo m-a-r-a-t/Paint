@@ -1,0 +1,70 @@
+.top__panel {
+
+  display: grid;
+  position: fixed;
+  background: white;
+  top: $logo-height;
+  width: 100%;
+  height: 50px;
+  border-bottom: $borders;
+  grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 150px 60px 60px 60px;
+  padding-left: 25px;
+  font-size: 35px;
+  align-items: center;
+
+
+  div {
+    background: transparent;
+    margin: 0 auto;
+
+    outline: none;
+    font-size: 15px;
+
+    input[type=range] {
+      cursor: url("cursor.png"), pointer;
+
+    }
+
+
+  }
+
+  #color__first {
+
+    @include background(black);
+
+  }
+
+  #color__second {
+    @include background(white);
+
+  }
+
+  span {
+    font-size: inherit;
+
+    &:hover {
+      transform: translate(-4px, -4px);
+
+    }
+
+    &:active {
+      color: $activate-button-colors;
+    }
+  }
+}
+
+.buttons__page {
+  display: grid;
+  grid-template-columns: 25px auto;
+}
+
+#page {
+  position: absolute;
+  cursor: crosshair;
+  z-index: -1;
+  top: $logo-height+$panel-height;
+  left: $buttons-width;
+  border: 1px solid gray;
+  background: white;
+}
+

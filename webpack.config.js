@@ -3,17 +3,38 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
 
 const filename = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`
 
+const optimization = () => {
+    const config = {
+        splitChunks: {
+            chunks: 'all'
+        }
+    }
+
+    if (isProd) {
+        config.minimizer = [
+            new OptimizeCssAssetPlugin(),
+            new TerserWebpackPlugin()
+        ]
+    }
+
+    return config
+}
+
+
 const jsLoaders = () => {
     const loaders = [
         {
             loader: 'babel-loader',
             options: {
+                plugins: ['@babel/plugin-proposal-class-properties'],
                 presets: ['@babel/preset-env']
             }
         }
@@ -37,14 +58,16 @@ module.exports = {
         }
     },
     devtool: isDev ? 'source-map' : false,
+    optimization: optimization(),
     devServer: {
-        port: 3000,
+        port: 8800,
         hot: isDev
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
             template: 'index.html',
+            favicon: path.resolve(__dirname, 'src/icon.ico'),
             minify: {
                 removeComments: isProd,
                 collapseWhitespace: isProd
@@ -52,7 +75,11 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                {from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist')},
+                {from: path.resolve(__dirname, 'src/icon.ico'), to: path.resolve(__dirname, 'dist')},
+                {from: path.resolve(__dirname, 'src/scss/navigation.png'), to: path.resolve(__dirname, 'dist')},
+                {from: path.resolve(__dirname, 'src/scss/cursor.png'), to: path.resolve(__dirname, 'dist')},
+
+
             ],
 
         }),
@@ -80,7 +107,15 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: jsLoaders()
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif|cur)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            },
         ]
     }
 }
