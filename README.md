@@ -1,4 +1,4 @@
-#  Welcome to the Paint wiki!
+#  Welcome to the Paint repository!
 This app is created in native javascript !!! 
 
 ##   Install and start locally
