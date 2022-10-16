@@ -39,7 +39,7 @@
   .clipboard {
     height: $buttons-height;
     display: grid;
-    grid-template-rows: $button-size $button-size $button-size;
+    grid-template-rows: $button-size $button-size $button-size $button-size;
     grid-template-areas: 's' 's' 's' 's';
 
 
@@ -52,7 +52,7 @@
       img {
         &:hover {
 
-          background: #e9e3e3;
+          background: $activate-button-colors;
         }
 
         width: 24px;
@@ -68,12 +68,14 @@
 
   span:hover {
     cursor: url("cursor.png"), pointer;
-    background: #e9e3e3;
+    background: $activate-button-colors;
+
   }
 
   svg:hover {
     cursor: url("cursor.png"), pointer;
-    background: #e9e3e3;
+    background: $activate-button-colors;
+
   }
 
 }
@@ -98,6 +100,8 @@
   }
 }
 
-.activated {
-  background: #66e966;
+.changed__button {
+  background: $activate-button-colors;
+
 }
+

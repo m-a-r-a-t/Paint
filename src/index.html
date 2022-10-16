@@ -28,14 +28,14 @@ brush
         <span class="material-icons" title="Копировать">
             content_copy
         </span>
-        <button id="color__first"
+        <button class="changed__color" id="color__first"
                 data-jscolor="{alphaChannel:false , value:'rgba(0,0,0,1)'}"></button>
 
         <button id="color__second" data-jscolor="{alphaChannel:false , value:'rgba(255,255,255,1)'}"></button>
-        <span class="material-icons">
+        <span id="zoom__in" class="material-icons">
             zoom_in
         </span>
-        <span class="material-icons">
+        <span id="zoom__out" class="material-icons">
         zoom_out
         </span>
         <div>
@@ -43,12 +43,10 @@ brush
             <div id="thickness">Thickness : 1</div>
             <input id="range" type="range" min="1" max="100" step="1" value="1">
         </div>
-        <span class="material-icons  " title="Поворот на 90° влево">
-                   rotate_left
-                </span>
-        <span class="material-icons  " title="Поворот на 90° влево">
-                   rotate_right
-                </span>
+
+        <span id="download" class="material-icons">
+            get_app
+        </span>
 
     </div>
 </div>
@@ -57,38 +55,34 @@ brush
         <div class="clipboard">
 
 
-            <div>
+            <div class="button">
             <span class="material-icons  " title="Выделить">
                      highlight_alt
                 </span>
             </div>
 
-            <div id="edit">
-            <span class="material-icons" title="Карандаш">
+            <div class="button" id="edit">
+            <span class="material-icons  changed__button" title="Карандаш">
                     edit
                 </span>
             </div>
-            <div id="eraser">
+            <div class="button" id="eraser">
                 <img class="editable" src="https://img.icons8.com/material/96/000000/eraser--v1.png"/>
             </div>
-            <div>
+            <div class="button">
             <span class="material-icons" title="Выделить">
                     title
                 </span>
             </div>
-            <div>
+            <div class="button">
                 <span class="material-icons" title="Выделить">
                    format_paint
                 </span>
             </div>
-            <div>
-                <span class="material-icons">
-                    palette
-                </span>
-            </div>
+
         </div>
     </div>
-    <canvas id="page" width="1920" height="1080px"></canvas>
+    <canvas id="page" width="1920" height="1080"></canvas>
 </div>
 </div>
 
