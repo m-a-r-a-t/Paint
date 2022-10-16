@@ -11,13 +11,19 @@ export class DrawFuncs {
     draw() {
         let canvas = document.getElementById('page')
         let ctx = canvas.getContext('2d')
+        let w = +canvas.getAttribute('width')
+        let h = +canvas.getAttribute('height')
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, w, h)
         ctx.lineWidth = this.thickness * 2
-        ctx.strokeStyle = this.color;
-        ctx.fillStyle = this.color;
+        ctx.strokeStyle = this.color
+        ctx.fillStyle = this.color
         let mouse = {x: 0, y: 0}
         let isDraw = false
 
         canvas.addEventListener('mousedown', function (e) {
+            if (event.which != 1)
+                return
             mouse = getMousePos(canvas, e)
             isDraw = true
             ctx.beginPath();
@@ -29,6 +35,7 @@ export class DrawFuncs {
         })
 
         canvas.addEventListener('mousemove', function (e) {
+
 
             if (isDraw) {
                 mouse = getMousePos(canvas, e)
@@ -66,6 +73,7 @@ export class DrawFuncs {
 
 function getMousePos(canvas, evt) {
     let rect = canvas.getBoundingClientRect(), // abs. size of element
+        
         scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for X
         scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for Y
 

@@ -1,6 +1,7 @@
 @mixin background($color) {
-  border: 1px solid white;
-  outline: $borders;
+  border: $borders;
+  outline: none;
+  border-radius: 20%;
   margin: 0 auto;
   padding: 0px 0px 0px 0px;
   height: 35px;
@@ -10,4 +11,7 @@
   &:hover {
     transform: translate(-4px, -4px);
   }
+
+
+
 }
